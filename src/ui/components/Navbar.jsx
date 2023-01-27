@@ -28,10 +28,6 @@ export const Navbar = () => {
           <NavLink className={setActive} to='/search'>
             Search
           </NavLink>
-
-          <NavLink className={setActive} to='/hero'>
-            Hero
-          </NavLink>
         </div>
       </div>
 
