@@ -1,4 +1,4 @@
-import { render, renderHook, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router';
 import { AuthContext } from '../../src/auth';
 import { PrivateRoute } from '../../src/router/PrivateRoute';
@@ -44,7 +44,6 @@ describe('Pruebas sobre <PrivateRoute.jsx/>', () => {
         </MemoryRouter>
       </AuthContext.Provider>
     );
-    screen.debug();
     expect(screen.getByText('Login Page')).toBeTruthy();
   });
 
@@ -73,6 +72,6 @@ describe('Pruebas sobre <PrivateRoute.jsx/>', () => {
       </AuthContext.Provider>
     );
 
-    expect(localStorage.setItem).toBeCalledWith("lastPath","/home");
+    expect(localStorage.setItem).toBeCalledWith('lastPath', '/home');
   });
 });
