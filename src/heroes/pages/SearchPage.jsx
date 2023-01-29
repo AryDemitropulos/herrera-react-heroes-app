@@ -8,6 +8,7 @@ import { getHeroesByName } from '../helpers/getHeroByName';
 export const SearchPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(location);
   const { q: query = '' } = queryString.parse(location.search);
 
   const { searchText, onInputChange } = useForm({ searchText: query });
@@ -28,7 +29,7 @@ export const SearchPage = () => {
         <div className='col-5'>
           <h4>Searching</h4>
           <hr />
-          <form onSubmit={onSearchSubmit}>
+          <form onSubmit={onSearchSubmit} aria-label='form'>
             <input
               type='text'
               placeholder='Search a hero'
@@ -46,10 +47,14 @@ export const SearchPage = () => {
           <h4>Results</h4>
           <hr />
 
-          {!query && <div className='alert alert-primary'>Search a hero</div>}
+          {!query && (
+            <div aria-label='alert-default' className='alert alert-primary'>
+              Search a hero
+            </div>
+          )}
 
           {query && heroes.length === 0 && (
-            <div className='alert alert-danger'>
+            <div aria-label='alert-danger' className='alert alert-danger'>
               No hero with <b>{query}</b>
             </div>
           )}
